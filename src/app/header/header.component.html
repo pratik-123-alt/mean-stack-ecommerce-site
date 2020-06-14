@@ -1,0 +1,34 @@
+<mat-toolbar color="primary" *ngIf="!userIsAuthenticated">
+  <span>
+    <a routerLink="/">Admin Portal</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    
+    <li >
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li >
+      <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+    </li>
+    
+  </ul>
+</mat-toolbar>
+<mat-toolbar color="primary" *ngIf="userIsAuthenticated">
+  <span>
+    <a routerLink="/">Hello Admin!</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent">Brand</a>
+    </li>
+    <span class="spacer"></span>
+    <a mat-button *ngIf="userIsAuthenticated" >
+    <mat-icon>account_circle</mat-icon>
+    </a>
+    <li *ngIf="userIsAuthenticated">
+      <button mat-button (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
